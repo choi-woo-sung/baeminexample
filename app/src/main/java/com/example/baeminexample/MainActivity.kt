@@ -8,6 +8,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.example.baeminexample.databinding.ActivityMainBinding
+import com.simform.refresh.SSPullToRefreshLayout
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -47,11 +52,30 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             scrollBulmi.layoutManager = linearLayoutManager
 
             buttonBaedal.setOnClickListener(this@MainActivity)
-            expandable.setOnClickListener (this@MainActivity)
+            expandable.setOnClickListener(this@MainActivity)
+            buttonBaemin.setOnClickListener(this@MainActivity)
+            buttonBell.setOnClickListener(this@MainActivity)
+            buttonInfo.setOnClickListener(this@MainActivity)
+            buttonMenu.setOnClickListener(this@MainActivity)
+            buttonPozang.setOnClickListener(this@MainActivity)
+            buttonShopinglive.setOnClickListener(this@MainActivity)
 
+
+            ssPullRefresh?.apply {
+                setRefreshTargetOffset(800f)
+                setOnRefreshListener(object : SSPullToRefreshLayout.OnRefreshListener {
+                    override fun onRefresh() {
+                        // This is demo code to perform
+                        CoroutineScope(Dispatchers.Main).launch {
+                            delay(1000)
+                            ssPullRefresh.setRefreshing(false) // This line stops layout refreshing
+                        }
+                    }
+                })
+
+            }
         }
     }
-
 
     // 뷰 페이저에 들어갈 아이템
     private fun getFoodList(): ArrayList<Int> {
@@ -126,13 +150,20 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(view: View?) {
-        when(view){
+        when (view) {
             binding.buttonBaedal -> toast("배달")
             binding.expandable -> if (binding.expandable.isExpanded) {
                 binding.expandable.collapse()
             } else {
                 binding.expandable.expand()
-        }
+            }
+            binding. buttonBaemin->toast("배달")
+                    binding.buttonBell-> toast("벨")
+                    binding.buttonInfo-> toast("정보")
+                    binding.buttonMenu-> toast("메뉴")
+                    binding.buttonPozang -> toast("포장")
+                    binding.buttonShopinglive -> toast("쇼핑라이브")
+
 
         }
     }

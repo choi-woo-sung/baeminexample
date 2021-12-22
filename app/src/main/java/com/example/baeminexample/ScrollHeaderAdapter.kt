@@ -21,7 +21,8 @@ class ScrollHeaderAdapter(private var image: ArrayList<Int>) : RecyclerView.Adap
 
         fun bind(dataSet: List<Int>, position: Int) {
 
-            binding.imageViewIdol.setBackgroundResource( dataSet[position])
+            binding.imageViewIdol.setImageResource( dataSet[position])
+
         }
     }
 
