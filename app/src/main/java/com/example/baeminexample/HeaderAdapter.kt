@@ -20,7 +20,7 @@ class HeaderAdapter(private var image: ArrayList<Int>) : RecyclerView.Adapter<He
 
         fun bind(dataSet: List<Int>, position: Int) {
 
-            binding.imageViewIdol.setBackgroundResource( dataSet[position])
+            binding.imageViewIdol.setImageResource( dataSet[position])
         }
     }
 
