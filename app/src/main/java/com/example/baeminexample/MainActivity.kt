@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
      val headerNum = MutableLiveData<Int>()
      val footerNum = MutableLiveData<Int>()
     val headerSize = getFoodList().size
+    val bottomSize = getFooterViewPager().size
 
 
     private lateinit var staggeredGridLayoutManager: StaggeredGridLayoutManager
@@ -82,7 +83,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 }
 
                 override fun onPageSelected(position: Int) {
-                    footerNum.postValue(position)
+                    footerNum.value = position+1
                     super.onPageSelected(position)
                 }
 

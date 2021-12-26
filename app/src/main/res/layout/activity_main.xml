@@ -402,6 +402,31 @@
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toEndOf="@+id/textView19" />
 
+                <View
+                    android:id="@+id/view9"
+                    android:layout_width="0dp"
+                    android:layout_height="25dp"
+                    android:background="@drawable/circle_rounded_corner"
+                    app:layout_constraintBottom_toBottomOf="@+id/viewPager3"
+                    app:layout_constraintDimensionRatio="2:1"
+                    app:layout_constraintEnd_toEndOf="@+id/viewPager3"
+                    app:layout_constraintHorizontal_bias="0.95"
+                    app:layout_constraintStart_toStartOf="@+id/viewPager3"
+                    app:layout_constraintTop_toTopOf="@+id/viewPager3"
+                    app:layout_constraintVertical_bias="0.87" />
+
+                <TextView
+                    android:id="@+id/textView37"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{@string/title_viewpager(activity.footerNum ,activity.bottomSize)}"
+                    android:textColor="@color/white"
+                    android:textSize="10sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/view9"
+                    app:layout_constraintEnd_toEndOf="@+id/view9"
+                    app:layout_constraintStart_toStartOf="@+id/view9"
+                    app:layout_constraintTop_toTopOf="@+id/view9" />
+
                 <TextView
                     android:id="@+id/textView11"
                     android:layout_width="wrap_content"
